@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PromptForge Schools - Student</title>
+<style>
+body{font-family:Arial,sans-serif;background:#0f172a;color:#e2e8f0;margin:0;padding:20px}
+.wrap{max-width:1000px;margin:auto}.card{background:#111827;border:1px solid #334155;border-radius:14px;padding:20px;margin-bottom:18px}
+textarea,select,button{width:100%;padding:12px;border-radius:10px;border:1px solid #475569;background:#0b1220;color:white}
+textarea{min-height:180px;resize:vertical}button{background:#2563eb;cursor:pointer;font-weight:bold}
+button:hover{background:#1d4ed8}.answer{white-space:pre-wrap;line-height:1.6}.meta{opacity:.7;font-size:.9rem}
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1>🎓 PromptForge Schools</h1>
+<p class="meta">School-safe local AI learning assistant</p>
+<div class="card">
+<label>Learning Mode</label>
+<select id="mode">
+<option value="learning_support">Learning Support</option>
+<option value="revision">Revision</option>
+<option value="homework_help">Homework Help</option>
+<option value="exam_mode">Exam Mode</option>
+</select>
+<br><br>
+<label>Room</label>
+<select id="room">
+<option value="default">Default Classroom</option>
+<option value="exam_room">Exam Room</option>
+<option value="teacher_room">Teacher Room</option>
+</select>
+<br><br>
+<label>Question / Task</label>
+<textarea id="prompt" placeholder="Ask a question or request help..."></textarea>
+<br><br>
+<button onclick="askSchoolAI()">Ask School AI</button>
+</div>
+<div class="card">
+<h2>Response</h2>
+<div id="answer" class="answer">No response yet.</div>
+</div>
+</div>
+<script src="/school.js"></script>
+</body>
+</html>
