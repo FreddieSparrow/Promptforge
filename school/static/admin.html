@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PromptForge Schools - Admin</title>
+<style>
+body{font-family:Arial,sans-serif;background:#111827;color:#f8fafc;margin:0;padding:20px}.wrap{max-width:1000px;margin:auto}.card{background:#1e293b;border:1px solid #334155;border-radius:14px;padding:20px;margin-bottom:18px}
+input,select,button{width:100%;padding:12px;border-radius:10px;border:1px solid #475569;background:#0f172a;color:white}
+button{background:#16a34a;cursor:pointer;font-weight:bold}button:hover{background:#15803d}.status{padding:10px;border-radius:10px;background:#0f172a;margin-top:10px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1>🛠 PromptForge Schools Admin</h1>
+<div class="card">
+<h2>School Controls</h2>
+<label>Global Mode</label>
+<select id="admin-mode">
+<option value="classroom">Classroom</option>
+<option value="revision">Revision</option>
+<option value="exam_mode">Exam Mode</option>
+</select>
+<br><br>
+<label><input type="checkbox" id="exam-toggle"> Enable Exam Restrictions</label>
+<br><br>
+<label><input type="checkbox" id="coursework-toggle" checked> Enable Coursework Protection</label>
+<br><br>
+<label>Preferred Default Model</label>
+<input id="default-model" value="gemma3:4b">
+<br><br>
+<button onclick="saveAdminSettings()">Save School Settings</button>
+<div id="save-status" class="status">No changes saved yet.</div>
+</div>
+<div class="card">
+<h2>System Status</h2>
+<div id="system-status">Loading...</div>
+</div>
+</div>
+<script src="/school.js"></script>
+<script>loadAdminPanel();</script>
+</body>
+</html>
