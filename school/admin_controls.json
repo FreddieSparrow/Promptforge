@@ -1,0 +1,93 @@
+{
+  "version": "1.0",
+  "mode": "classroom",
+  "approved_models": {
+    "enabled": true,
+    "models": [
+      "llama3.1:8b",
+      "gemma3:4b",
+      "mistral:7b"
+    ],
+    "block_unapproved_models": true
+  },
+  "banned_coursework_mode": {
+    "enabled": true,
+    "description": "Prevents the assistant from producing full assessed coursework, NEA, essay, project, or portfolio submissions for students.",
+    "allow": [
+      "concept explanations",
+      "revision plans",
+      "feedback on student-written drafts",
+      "mark-scheme-style guidance without writing the answer",
+      "short examples clearly labelled as examples"
+    ],
+    "block": [
+      "write my coursework",
+      "complete my assignment",
+      "make this sound like I wrote it",
+      "produce a final submission",
+      "bypass plagiarism checks"
+    ]
+  },
+  "exam_mode_policy": {
+    "enabled": false,
+    "description": "Stricter mode for tests, mock exams, controlled assessments, or exam-style rooms.",
+    "allowed_behaviour": [
+      "define key terms",
+      "explain general concepts",
+      "give revision hints",
+      "ask guiding questions"
+    ],
+    "blocked_behaviour": [
+      "direct answers to live exam questions",
+      "step-by-step completion of an assessed test",
+      "impersonating a student",
+      "generating final answers for submission"
+    ]
+  },
+  "classroom_mode_toggle": {
+    "enabled": true,
+    "default_mode": "learning_support",
+    "available_modes": [
+      "learning_support",
+      "revision",
+      "homework_help",
+      "exam_mode",
+      "teacher_demo"
+    ]
+  },
+  "per_room_access_rules": {
+    "enabled": true,
+    "rooms": {
+      "default": {
+        "allowed_modes": ["learning_support", "revision", "homework_help"],
+        "allowed_models": ["llama3.1:8b", "gemma3:4b"],
+        "logging_level": "standard"
+      },
+      "exam_room": {
+        "allowed_modes": ["exam_mode"],
+        "allowed_models": ["gemma3:4b"],
+        "logging_level": "strict"
+      },
+      "teacher_room": {
+        "allowed_modes": ["teacher_demo", "learning_support", "revision"],
+        "allowed_models": ["llama3.1:8b", "gemma3:4b", "mistral:7b"],
+        "logging_level": "standard"
+      }
+    }
+  },
+  "teacher_override_prompts": {
+    "enabled": true,
+    "require_teacher_role": true,
+    "description": "Allows authorised teachers to temporarily adjust behaviour for a lesson without disabling academic integrity rules.",
+    "examples": [
+      "For this lesson, focus on Socratic questioning and do not give direct answers.",
+      "Explain Python errors clearly but do not write the full program for the student.",
+      "Use GCSE-level language and ask the student to attempt each step before continuing."
+    ],
+    "hard_limits": [
+      "Teacher overrides cannot enable cheating.",
+      "Teacher overrides cannot disable safeguarding or academic integrity policies.",
+      "Teacher overrides cannot enable hidden monitoring or client-side surveillance."
+    ]
+  }
+}
